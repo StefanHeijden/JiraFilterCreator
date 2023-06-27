@@ -1,0 +1,10 @@
+{
+  "Bouwteams": [
+    "Team Helios"
+  ],
+  "issuetype": [
+    "Bug",
+    "Story",
+    "Service Request"
+  ]
+}
