@@ -1,0 +1,1 @@
+assignee = currentUser() OR issueFunction in subtasksOf("assignee = currentUser()") OR issueFunction in parentsOf("assignee = currentUser()")

@@ -1,0 +1,1 @@
+(labels = Sprintdoel OR issueFunction in subtasksOf("labels = Sprintdoel") OR issueFunction in subtasksOf("issueFunction in issuesInEpics('labels = Sprintdoel')") OR issueFunction in issuesInEpics("labels = Sprintdoel"))

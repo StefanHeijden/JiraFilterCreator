@@ -1,0 +1,1 @@
+issueFunction in subtasksOf("status in ('Ready for A release', 'A-release Done', Closed )") AND (summary ~ DoD OR summary ~ "PO check") AND status != Closed

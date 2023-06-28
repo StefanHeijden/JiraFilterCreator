@@ -1,0 +1,1 @@
+((issuetype = Bug OR issuetype = Story OR issuetype = "Service Request") AND (labels = Operations OR issueFunction in parentsOf("summary ~ OPS:"))) OR (issuetype = Subtask AND (summary ~ OPS: OR issueFunction in subtasksOf("labels = Operations")))
