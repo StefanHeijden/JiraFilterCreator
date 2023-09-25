@@ -61,3 +61,10 @@ def backlog_filter():
         "AND",
         is_in_sprint
         ])
+
+
+def is_story():
+    return is_in(issuetype, global_constants[issuetype])
+
+def is_issue():
+    is_in(issuetype, "Subtask")

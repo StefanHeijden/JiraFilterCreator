@@ -6,10 +6,12 @@ def generate_has_dod_story():
     return combine([
         [
             "NOT",
-            subtask_of(has_dod)
+            parent_of(has_dod)
         ],
         "AND",
-        backlog_filter()
+        backlog_filter(),
+        "AND",
+        is_story()
         ])
 
 
