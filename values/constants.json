@@ -1,10 +1,11 @@
 {
-  "Bouwteams": [
+  "bouwteams": [
     "Team Helios"
   ],
   "issuetype": [
     "Bug",
     "Story",
     "Service Request"
-  ]
+  ],
+  "sprint": "882"
 }

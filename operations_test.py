@@ -19,6 +19,10 @@ class TestIsIn(unittest.TestCase):
         result = is_in("field", ["test1", "test2"])
         self.assertEqual('field in ("test1", "test2")', result)
 
+    def test_spaces(self):
+        result = is_in("Bouwteams", "Team Helios")
+        self.assertEqual('Bouwteams = "Team Helios"', result)
+
 
 if __name__ == '__main__':
     unittest.main()

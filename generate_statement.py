@@ -6,14 +6,11 @@ def get_constants(filename):
     file = open(filename, "r")
     constants = json.load(file)
     file.close()
-    file = open("values/constants.json", "r")
-    global_constants = json.load(file)
-    file.close()
-    return constants, global_constants
+    return constants
 
 
 def generate_statement(json_file):
-    constants, global_constants = get_constants(json_file)
+    constants = get_constants(json_file)
 
     has_backend_labels = is_in(labels, constants["labels"])
     is_story = is_in(issuetype, global_constants[issuetype])

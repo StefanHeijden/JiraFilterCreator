@@ -1,11 +1,17 @@
+import json
+
 AND = "AND"
 NAND = "AND NOT"
 OR = "OR"
 NOR = "OR NOT"
 labels = "labels"
-bouwteams = "Bouwteams"
+bouwteams = "bouwteams"
+sprint = "sprint"
 summary = "summary"
 issuetype = "issuetype"
+file = open("values/constants.json", "r")
+global_constants = json.load(file)
+file.close()
 
 
 def combine(statements):
@@ -34,6 +40,8 @@ def is_in(field, entries, in_value="in"):
         in_value = "~"
     else:
         in_value = "="
+    if " " in entries:
+        entries = '"' + entries + '"'
     return f'{field} {in_value} {entries}'
 
 
@@ -43,3 +51,13 @@ def subtask_of(statement):
 
 def parent_of(statement):
     return f"issueFunction in parentsOf('{statement}')"
+
+
+def backlog_filter():
+    is_in_bouwteam = is_in("Bouwteams", global_constants[bouwteams])
+    is_in_sprint = is_in("Sprint", global_constants[sprint])
+    return combine([
+        is_in_bouwteam,
+        "AND",
+        is_in_sprint
+        ])
