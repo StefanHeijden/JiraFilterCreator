@@ -1,2 +1,1 @@
-(issuetype in (Bug, Story, "Service Request") AND (labels = Backend OR issueFunction in parentsOf("summary ~ BE:"))) OR (issuetype = Subtask AND (summary ~ BE: OR issueFunction in subtasksOf("labels = Backend")))
 (issuetype in (Bug, Story, "Service Request") AND (labels = Backend OR issueFunction in parentsOf('summary ~ BE:'))) OR (issuetype = Subtask AND (summary ~ BE: OR issueFunction in subtasksOf('labels = Backend')))

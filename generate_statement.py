@@ -2,18 +2,25 @@ from operations import *
 import json
 
 
-def print_statement(filename):
+def get_constants(filename):
     file = open(filename, "r")
-    backend = json.load(file)
-    file = open("values/constants.json", "r")
     constants = json.load(file)
+    file.close()
+    file = open("values/constants.json", "r")
+    global_constants = json.load(file)
+    file.close()
+    return constants, global_constants
 
-    has_backend_labels = is_in(labels, backend["labels"])
-    is_story = is_in(issuetype, constants[issuetype])
-    has_summary = is_in(summary, backend[summary])
+
+def generate_statement(json_file):
+    constants, global_constants = get_constants(json_file)
+
+    has_backend_labels = is_in(labels, constants["labels"])
+    is_story = is_in(issuetype, global_constants[issuetype])
+    has_summary = is_in(summary, constants[summary])
     is_issue = is_in(issuetype, "Subtask")
 
-    print(combine([
+    return combine([
         [
            is_story,
            "AND",
@@ -33,10 +40,4 @@ def print_statement(filename):
                subtask_of(has_backend_labels)
             ]
         ]
-    ]))
-
-
-print_statement("values/backend.json")
-print_statement("values/frontend.json")
-print_statement("values/ops.json")
-print_statement("values/testers.json")
+    ])

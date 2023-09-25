@@ -1,12 +1,25 @@
 from operations import *
+import unittest
 
 
-def test_is_in(result, field, entries, in_value= "in"):
-    print(is_in(field, entries, in_value) == result)
+class TestIsIn(unittest.TestCase):
+    def test_is_in_string(self):
+        result = is_in("field", "test")
+        self.assertEqual("field = test", result)
+
+    def test_is_in_list(self):
+        result = is_in("field", ["test"])
+        self.assertEqual("field = test", result)
+
+    def test_is_in_summary(self):
+        result = is_in("summary", ["test"])
+        self.assertEqual("summary ~ test", result)
+
+    def test_multiple_entries(self):
+        result = is_in("field", ["test1", "test2"])
+        self.assertEqual('field in ("test1", "test2")', result)
 
 
-test_is_in("field = test", "field", "test")
-test_is_in("field = test", "field", ["test"])
-test_is_in("summary ~ test", "summary", ["test"])
-test_is_in('field in ("test1", "test2")', "field", ["test1", "test2"])
+if __name__ == '__main__':
+    unittest.main()
 
