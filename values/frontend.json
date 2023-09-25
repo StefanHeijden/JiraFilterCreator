@@ -1,9 +1,10 @@
 {
   "summary": [
-    "BE:",
-    "CMS:"
+    "FE:",
+    "Next:",
+    "Tulip:"
   ],
   "labels": [
-    "Backend"
+    "Frontend"
   ]
 }
